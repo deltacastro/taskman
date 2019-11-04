@@ -15,4 +15,5 @@
 //     return view('welcome');
 // });
 
-Route::view('/{path?}', 'app');
+Route::view('/{path?}/{path2?}', 'app');
+// Route::view('/dominios/{path?}', 'dominios');
