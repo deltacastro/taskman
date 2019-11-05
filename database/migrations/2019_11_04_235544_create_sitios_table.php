@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCuentasTable extends Migration
+class CreateSitiosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateCuentasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuentas', function (Blueprint $table) {
+        Schema::create('sitios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('propietario');
-            $table->string('usuario');
-            $table->string('password');
-            $table->string('correo');
-            $table->string('telefono');
+            $table->integer('cliente_id')->unsigned();
+            $table->integer('sitio_principal_id')->nullable();
+            $table->string('nombre');
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateCuentasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuentas');
+        Schema::dropIfExists('sitios');
     }
 }

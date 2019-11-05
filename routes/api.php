@@ -39,3 +39,13 @@ Route::group(['namespace' => 'Api', 'prefix' => 'servicios'], function () {
     Route::get('/lista', 'ServiciosController@index');
     Route::post('/store', 'ServiciosController@store');
 });
+
+Route::group(['namespace' => 'Api', 'prefix' => 'sitios'], function () {
+    Route::get('/lista', 'SitiosController@index');
+    Route::post('/store', 'SitiosController@store');
+});
+
+Route::group(['namespace' => 'Api', 'prefix' => 'clientes'], function () {
+    Route::get('/lista', 'ClientesController@index');
+    Route::post('/store', 'ClientesController@store');
+});

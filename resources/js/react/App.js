@@ -8,6 +8,8 @@ import ProveedorIndex from './views/proveedores/index'
 import ProveedorCreate from './views/proveedores/create'
 import ServicioIndex from './views/servicios/index'
 import ServicioCreate from './views/servicios/create'
+import SitioIndex from './views/sitios/index'
+import SitioCreate from './views/sitios/create'
 // import ProveedorCreate from './Proveedores/'
 
 class App extends Component {
@@ -24,6 +26,8 @@ class App extends Component {
                         <Route exact path='/proveedores/nuevo' component={ProveedorCreate} />
                         <Route exact path='/servicios' component={ServicioIndex} />
                         <Route exact path='/servicios/nuevo' component={ServicioCreate} />
+                        <Route exact path='/sitios' component={SitioCreate} />
+                        <Route exact path='/sitios/nuevo' component={SitioCreate} />
                         {/* <Route path='/cuentas/nuevo' component={CuentasIndex} /> */}
                         {/* <Route path='/:id/edit' component={SingleProject} /> */}
                         {/* <Route path='/create' component={NewProject} /> */}

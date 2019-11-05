@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Cuenta;
+use App\Sitio;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CuentasController extends Controller
+class SitiosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CuentasController extends Controller
      */
     public function index()
     {
-        $cuentas = Cuenta::All();
-        return $cuentas->toJson();
+        $sitios = Sitio::All();
+        return $sitios->toJson();
     }
 
     /**
@@ -38,27 +38,28 @@ class CuentasController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'propietario' => 'required',
-            'usuario' => 'required',
-            'password' => 'required'
+            'cliente_id' => 'required',
+            'nombre' => 'required',
+            'url' => 'required'
         ]);
 
-        $cuenta = Cuenta::create([
-            'propietario' => $validatedData['propietario'],
-            'usuario' => $validatedData['usuario'],
-            'password' => $validatedData['password']
+        $sitio = Sitio::create([
+            'cliente_id' => $validatedData['required'],
+            'sitio_principal_id' => $request->sitio_principal_id,
+            'nombre' => $validatedData['nombre'],
+            'url' => $validatedData['url'],
         ]);
 
-        return response()->json('Cuenta creada');
+        return response()->json('Sitio creado');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cuenta  $cuenta
+     * @param  \App\Sitio  $sitio
      * @return \Illuminate\Http\Response
      */
-    public function show(Cuenta $cuenta)
+    public function show(Sitio $sitio)
     {
         //
     }
@@ -66,10 +67,10 @@ class CuentasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cuenta  $cuenta
+     * @param  \App\Sitio  $sitio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cuenta $cuenta)
+    public function edit(Sitio $sitio)
     {
         //
     }
@@ -78,10 +79,10 @@ class CuentasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cuenta  $cuenta
+     * @param  \App\Sitio  $sitio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cuenta $cuenta)
+    public function update(Request $request, Sitio $sitio)
     {
         //
     }
@@ -89,10 +90,10 @@ class CuentasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cuenta  $cuenta
+     * @param  \App\Sitio  $sitio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cuenta $cuenta)
+    public function destroy(Sitio $sitio)
     {
         //
     }

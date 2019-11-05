@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCuentasTable extends Migration
+class CreateSitiosServiciosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateCuentasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuentas', function (Blueprint $table) {
+        Schema::create('sitios_has_servicios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('propietario');
-            $table->string('usuario');
-            $table->string('password');
-            $table->string('correo');
-            $table->string('telefono');
+            $table->integer('servicio_id')->unsigned();
+            $table->integer('proveedor_id')->unsigned();
+            $table->integer('cuenta_id')->unsigned();
+            $table->integer('sitio_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateCuentasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuentas');
+        Schema::dropIfExists('sitios_has_servicios');
     }
 }
