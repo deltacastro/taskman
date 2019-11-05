@@ -44,8 +44,8 @@ class ClientesController extends Controller
         ]);
 
         $cliente = Cliente::create([
-            'nombre' => $validatedData['required'],
-            'descripcion' => $validatedData['required'],
+            'nombre' => $validatedData['nombre'],
+            'descripcion' => $validatedData['descripcion'],
             'registrado_desde' => $validatedData['registrado_desde'],
         ]);
 
