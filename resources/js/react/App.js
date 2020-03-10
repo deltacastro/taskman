@@ -12,6 +12,8 @@ import SitioIndex from './views/sitios/index'
 import SitioCreate from './views/sitios/create'
 import ClienteIndex from './views/clientes/index'
 import ClienteCreate from './views/clientes/create'
+import ProyectoIndex from './views/proyectos/index'
+
 // import ProveedorCreate from './Proveedores/'
 
 class App extends Component {
@@ -32,6 +34,8 @@ class App extends Component {
                         <Route exact path='/sitios/nuevo' component={SitioCreate} />
                         <Route exact path='/clientes' component={ClienteIndex} />
                         <Route exact path='/clientes/nuevo' component={ClienteCreate} />
+                        <Route exact path='/proyectos' component={ProyectoIndex} />
+                        {/* <Route exact path='/proyectos/nuevo' component={ProyectoCreate} /> */}
                         {/* <Route path='/cuentas/nuevo' component={CuentasIndex} /> */}
                         {/* <Route path='/:id/edit' component={SingleProject} /> */}
                         {/* <Route path='/create' component={NewProject} /> */}

@@ -12,6 +12,8 @@ class Create extends Component {
             propietario: '',
             usuario: '',
             password: '',
+            correo: '',
+            telefono: '',
             errors: []
         }
 
@@ -35,7 +37,9 @@ class Create extends Component {
         const cuenta = {
             propietario: this.state.propietario,
             usuario: this.state.usuario,
-            password: this.state.password
+            password: this.state.password,
+            correo: this.state.correo,
+            telefono: this.state.telefono,
         }
 
         axios.post('/api/cuentas/store', cuenta)
@@ -96,6 +100,26 @@ class Create extends Component {
                         inputOnChange={this.handleFieldChange}
                         hasError={this.hasErrorFor('password') ? true : false}
                         renderError={this.renderErrorFor('password')}
+                    />
+                    <StdInput
+                        labelName='Correo'
+                        inputId='correo'
+                        inputName='correo'
+                        cstmClass=''
+                        inputValue={this.state.correo}
+                        inputOnChange={this.handleFieldChange}
+                        hasError={this.hasErrorFor('correo') ? true : false}
+                        renderError={this.renderErrorFor('correo')}
+                    />
+                    <StdInput
+                        labelName='Teléfono'
+                        inputId='telefono'
+                        inputName='telefono'
+                        cstmClass=''
+                        inputValue={this.state.telefono}
+                        inputOnChange={this.handleFieldChange}
+                        hasError={this.hasErrorFor('telefono') ? true : false}
+                        renderError={this.renderErrorFor('telefono')}
                     />
                     <BtnGuardar />
                 </form>

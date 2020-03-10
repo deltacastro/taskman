@@ -26,9 +26,9 @@ class Index extends Component {
         const { sitios } = this.state
 
         return (
-            <CardLt header="Servicios">
-                <Link className='btn btn-primary btn-sm mb-3' to='/servicios/nuevo'>
-                    Agregar sitio
+            <CardLt header="Sitios">
+                <Link className='btn btn-primary btn-sm mb-3' to='/sitios/nuevo'>
+                    Agregar sitios
                 </Link>
                 <ul className='list-group list-group-flush'>
                     {sitios.map(sitio => (

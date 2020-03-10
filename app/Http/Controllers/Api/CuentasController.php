@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Cuenta;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Cuenta\StoreRequest as CuentaStoreRequest;
 
 class CuentasController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->mCuenta = new Cuenta;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,7 @@ class CuentasController extends Controller
      */
     public function index()
     {
-        $cuentas = Cuenta::All();
+        $cuentas = $this->mCuenta->All();
         return $cuentas->toJson();
     }
 
@@ -35,20 +42,9 @@ class CuentasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CuentaStoreRequest $request)
     {
-        $validatedData = $request->validate([
-            'propietario' => 'required',
-            'usuario' => 'required',
-            'password' => 'required'
-        ]);
-
-        $cuenta = Cuenta::create([
-            'propietario' => $validatedData['propietario'],
-            'usuario' => $validatedData['usuario'],
-            'password' => $validatedData['password']
-        ]);
-
+        $cuenta = $this->mCuenta->guardar($request);
         return response()->json('Cuenta creada');
     }
 

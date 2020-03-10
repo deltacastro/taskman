@@ -105,6 +105,7 @@ class Create extends Component {
                         renderError={this.renderErrorFor('url')}
                     />
                     <StdSelect
+                        labelName='Seleccione el cliente'
                         selectId='cliente_id'
                         selectName='cliente_id'
                         cstmName=''
@@ -113,7 +114,7 @@ class Create extends Component {
                         selectOnChange={this.handleFieldChange}
                     >
                         {clientes.map(cliente => (
-                            <option value={cliente.id}>{cliente.nombre}</option>
+                            <option key={cliente.id} value={cliente.id}>{cliente.nombre}</option>
                         ))}
                     </StdSelect>
                     <BtnGuardar />
